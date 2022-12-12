@@ -6,6 +6,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class AppProperties {
 
     private String orderTopic;
+    private String resultTopic;
+
+    private String notifyTopic;
 
     //region getters / setters
 
@@ -15,6 +18,22 @@ public class AppProperties {
 
     public void setOrderTopic(String orderTopic) {
         this.orderTopic = orderTopic;
+    }
+
+    public String getResultTopic() {
+        return resultTopic;
+    }
+
+    public void setResultTopic(String resultTopic) {
+        this.resultTopic = resultTopic;
+    }
+
+    public String getNotifyTopic() {
+        return notifyTopic;
+    }
+
+    public void setNotifyTopic(String notifyTopic) {
+        this.notifyTopic = notifyTopic;
     }
 
     //endregion
