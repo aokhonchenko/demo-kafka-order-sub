@@ -17,7 +17,7 @@ public class KafkaResultListener {
         this.orderService = orderService;
     }
 
-    @KafkaListener(topics = "${app.kafka.result-topic}")
+    @KafkaListener(topics = "${app.kafka.result-topic}", groupId = "order")
     public void resultIncome(@Payload Result result, Acknowledgment acknowledgment) {
         try {
             Long orderId = result.getOrderId();
