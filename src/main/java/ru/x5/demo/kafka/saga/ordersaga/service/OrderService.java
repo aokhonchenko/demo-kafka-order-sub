@@ -57,7 +57,7 @@ public class OrderService {
 
     @Transactional
     public void updateOrder(Long orderId, String author, Integer extId) {
-        log.info("Отменяем заказ {}", orderId);
+        log.info("Обновляем заказ {}", orderId);
         Order order = orderRepository.findOrderByIdAndOrderStatus(orderId, OrderStatus.PENDING).orElse(null);
         if (order == null) {
             log.info("Заказ {} не найден или не в статусе ожидания - ничего не требуется", orderId);
