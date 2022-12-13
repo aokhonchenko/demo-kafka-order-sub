@@ -1,4 +1,4 @@
-package ru.x5.demo.kafka.saga.ordersaga.model;
+package ru.x5.demo.kafka.saga.ordersaga.domain;
 
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -27,8 +27,18 @@ public class Order {
     @LastModifiedDate
     private LocalDateTime updated;
 
+    private Integer airTicket;
+
+    private Integer transfer;
+
+    private Integer room;
+
     @Version
     private Integer version = 0;
+
+    public boolean isCompleted() {
+        return airTicket != null && transfer != null && room != null;
+    }
 
     //region getters and setters
 
@@ -71,6 +81,30 @@ public class Order {
 
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
+    }
+
+    public Integer getAirTicket() {
+        return airTicket;
+    }
+
+    public void setAirTicket(Integer airTicket) {
+        this.airTicket = airTicket;
+    }
+
+    public Integer getTransfer() {
+        return transfer;
+    }
+
+    public void setTransfer(Integer transfer) {
+        this.transfer = transfer;
+    }
+
+    public Integer getRoom() {
+        return room;
+    }
+
+    public void setRoom(Integer room) {
+        this.room = room;
     }
 
     //endregion
